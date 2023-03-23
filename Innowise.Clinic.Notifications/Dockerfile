@@ -1,8 +1,11 @@
-﻿FROM mcr.microsoft.com/dotnet/runtime:6.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
+COPY ["Innowise.Clinic.Notifications/NuGet.Config", "./"]
 COPY ["Innowise.Clinic.Notifications/Innowise.Clinic.Notifications.csproj", "Innowise.Clinic.Notifications/"]
 RUN dotnet restore "Innowise.Clinic.Notifications/Innowise.Clinic.Notifications.csproj"
 COPY . .

@@ -1,3 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+using Innowise.Clinic.Notifications.Extensions;
 
-Console.WriteLine("Hello, World!");
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.ConfigureCrossServiceCommunication(builder.Configuration);
+builder.Services.ConfigureSmtp(builder.Configuration);
+
+var app = builder.Build();
+app.Run();
