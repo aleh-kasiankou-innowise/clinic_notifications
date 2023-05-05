@@ -1,4 +1,4 @@
-namespace Innowise.Clinic.Notifications.MailService.Data;
+namespace Innowise.Clinic.Notifications.Services.MailService.Data;
 
 public record SmtpSettings
 {
